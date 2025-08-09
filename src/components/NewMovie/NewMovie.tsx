@@ -15,20 +15,13 @@ export const NewMovie: React.FC<Props> = ({ onAdd }) => {
   const [imgUrl, setImgUrl] = useState('');
   const [imdbUrl, setImdbUrl] = useState('');
   const [imdbId, setImdbId] = useState('');
-  const [isDisabled, setIsDisabled] = useState(true);
 
-  const checkForBlanks = () => {
-    if (
-      title.trim().length > 0 &&
-      imdbUrl.trim().length > 0 &&
-      imgUrl.trim().length > 0 &&
-      imdbId.trim().length > 0
-    ) {
-      setIsDisabled(false);
-    } else {
-      setIsDisabled(true);
-    }
-  };
+  const isDisabled = !(
+    title.trim().length > 0 &&
+    imdbUrl.trim().length > 0 &&
+    imgUrl.trim().length > 0 &&
+    imdbId.trim().length > 0
+  );
 
   return (
     <form
@@ -57,7 +50,6 @@ export const NewMovie: React.FC<Props> = ({ onAdd }) => {
         value={title}
         onChange={value => {
           setTitle(value);
-          checkForBlanks();
         }}
         required
       />
@@ -68,7 +60,6 @@ export const NewMovie: React.FC<Props> = ({ onAdd }) => {
         value={description}
         onChange={value => {
           setDescription(value);
-          checkForBlanks();
         }}
       />
 
@@ -78,7 +69,6 @@ export const NewMovie: React.FC<Props> = ({ onAdd }) => {
         value={imgUrl}
         onChange={value => {
           setImgUrl(value);
-          checkForBlanks();
         }}
         required
       />
@@ -89,7 +79,6 @@ export const NewMovie: React.FC<Props> = ({ onAdd }) => {
         value={imdbUrl}
         onChange={value => {
           setImdbUrl(value);
-          checkForBlanks();
         }}
         required
       />
@@ -100,7 +89,6 @@ export const NewMovie: React.FC<Props> = ({ onAdd }) => {
         value={imdbId}
         onChange={value => {
           setImdbId(value);
-          checkForBlanks();
         }}
         required
       />
