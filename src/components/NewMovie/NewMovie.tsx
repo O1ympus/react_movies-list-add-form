@@ -17,16 +17,6 @@ export const NewMovie: React.FC<Props> = ({ onAdd }) => {
   const [imdbId, setImdbId] = useState('');
   const [isDisabled, setIsDisabled] = useState(true);
 
-  const reset = () => {
-    setCount(0);
-    setTitle('');
-    setDescription('');
-    setImgUrl('');
-    setImdbUrl('');
-    setImdbId('');
-    setIsDisabled(true);
-  };
-
   const checkForBlanks = () => {
     if (
       title.trim().length > 0 &&
@@ -35,6 +25,8 @@ export const NewMovie: React.FC<Props> = ({ onAdd }) => {
       imdbId.trim().length > 0
     ) {
       setIsDisabled(false);
+    } else {
+      setIsDisabled(true);
     }
   };
 
@@ -55,7 +47,6 @@ export const NewMovie: React.FC<Props> = ({ onAdd }) => {
 
         onAdd(newMovie);
         setCount(count + 1);
-        reset();
       }}
     >
       <h2 className="title">Add a movie</h2>
