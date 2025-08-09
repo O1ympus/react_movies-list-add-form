@@ -31,11 +31,11 @@ export const NewMovie: React.FC<Props> = ({ onAdd }) => {
         e.preventDefault();
 
         const newMovie = {
-          title: title,
-          description: description,
-          imgUrl: imgUrl,
-          imdbUrl: imdbUrl,
-          imdbId: imdbId,
+          title,
+          description,
+          imgUrl,
+          imdbUrl,
+          imdbId,
         };
 
         onAdd(newMovie);
